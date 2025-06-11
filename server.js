@@ -12,9 +12,10 @@ app.post('/screenshot', async (req, res) => {
   }
 
   try {
+    // ✅ This is where you configure Puppeteer for Render
     const browser = await puppeteer.launch({
       headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: ['--no-sandbox', '--disable-setuid-sandbox'] // ← Add this!
     });
 
     const page = await browser.newPage();
